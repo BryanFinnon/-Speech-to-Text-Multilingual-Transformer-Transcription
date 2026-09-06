@@ -1,3 +1,4 @@
+import os
 from datasets import Dataset, load_dataset, DatasetDict
 from sklearn.model_selection import train_test_split
 from transformers import WhisperTokenizer, WhisperProcessor, WhisperFeatureExtractor, WhisperForConditionalGeneration
@@ -18,9 +19,9 @@ common_voice = DatasetDict()
 
 # Charger le dataset
 common_voice["train"] = load_dataset("Hani89/medical_asr_recording_dataset", split="train",
-                                     token="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")
+                                     token=os.environ.get("HF_TOKEN"))
 common_voice["test"] = load_dataset("Hani89/medical_asr_recording_dataset", split="test",
-                                    token="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")
+                                    token=os.environ.get("HF_TOKEN"))
 
 
 # Fonction pour diviser un dataset en n parties
