@@ -1,0 +1,39 @@
+name: Quality checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile Python utilities
+        run: |
+          python -m py_compile \
+            Whisper_project/main.py \
+            Whisper_project/evaluate_on_custom_dataset.py \
+            "Whisper_project/Jax Transcription.py"
+
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Whisper_project/whisper-web-main
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: Whisper_project/whisper-web-main/package-lock.json
+      - run: npm ci
+      - run: npm run build

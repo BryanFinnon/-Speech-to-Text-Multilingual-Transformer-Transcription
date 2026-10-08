@@ -1,1 +1,6 @@
-.env\n.venv/\n__pycache__/\n*.py[cod]\nnode_modules/\ndist/\n
+.env
+.venv/
+__pycache__/
+*.py[cod]
+node_modules/
+dist/

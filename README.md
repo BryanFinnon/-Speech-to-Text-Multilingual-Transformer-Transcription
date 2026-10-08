@@ -1,5 +1,7 @@
 # Multilingual Speech-to-Text with Whisper
 
+[![Quality checks](https://github.com/BryanFinnon/multilingual-speech-to-text/actions/workflows/quality.yml/badge.svg)](https://github.com/BryanFinnon/multilingual-speech-to-text/actions/workflows/quality.yml)
+
 A research prototype combining Whisper fine-tuning, Word Error Rate evaluation, subtitle generation and browser-based transcription.
 
 ## Components
@@ -19,8 +21,8 @@ Python · PyTorch · Hugging Face Transformers · Whisper · JAX · React · Typ
 ## Python setup
 
 ```bash
-git clone https://github.com/BryanFinnon/-Speech-to-Text-Multilingual-Transformer-Transcription.git
-cd -- -Speech-to-Text-Multilingual-Transformer-Transcription/Whisper_project
+git clone https://github.com/BryanFinnon/multilingual-speech-to-text.git
+cd multilingual-speech-to-text/Whisper_project
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
